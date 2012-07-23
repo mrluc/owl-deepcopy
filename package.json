@@ -1,0 +1,10 @@
+{
+  "name":        "owl-deepcopy",
+  "description": "Packaged http://oranlooney.com/deep-copy-javascript/ for npm",
+  "author":      "Oran Looney",
+  "keywords":    ["deep","copy","clone","OWL"],
+  "repository":  "git://github.com/mrluc/owl-deepcopy",
+  "version":     "0.0.1",
+  "main":        "./deep_copy.js",
+  "engines":     {"node":">=0.4.0"}
+}
