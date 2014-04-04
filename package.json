@@ -9,7 +9,7 @@
     "OWL"
   ],
   "repository": "git://github.com/mrluc/owl-deepcopy",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "./deep_copy.js",
   "engines": {
     "node": ">=0.4.0"
