@@ -271,6 +271,31 @@ deepCopy.register({
   }
 });
 
+// EventEmitter copier
+// EventEmitters have a property which is an object, but doesn't 
+// have an object prototype, so instanceof doesn't work on them
+var EventEmitter = require('events').EventEmitter;
+deepCopy.register({
+  canCopy: function(source) { return source instanceof EventEmitter; },
+  
+  create: function(source) {
+    if ( source.hasOwnProperty && source instanceof source.constructor ) {
+      return clone(source.constructor.prototype);
+    } else {
+      return {};
+    }
+  },
+  
+  populate: function(deepCopy, source, result) {
+    for ( var key in source ) {
+      if ( !source.hasOwnProperty || source.hasOwnProperty(key) ) {
+        result[key] = deepCopy(source[key]);
+      }
+    }
+    return result;
+  }
+});
+
 // HTML DOM Node
 
 // utility function to detect Nodes.  In particular, we're looking
