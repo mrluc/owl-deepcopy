@@ -223,19 +223,19 @@ deepCopy.register = function(deepCopier) {
 // should work for base Objects and many user-defined classes.
 deepCopy.register({
   canCopy: function(source) { return true; },
-  
+
   create: function(source) {
-    if ( source instanceof source.constructor ) {
+    if ( source.hasOwnProperty && source instanceof source.constructor ) {
       return clone(source.constructor.prototype);
     } else {
       return {};
     }
   },
-  
+
   populate: function(deepCopy, source, result) {
     for ( var key in source ) {
-      if ( source.hasOwnProperty(key) ) {
-	result[key] = deepCopy(source[key]);
+      if ( source.hasOwnProperty && source.hasOwnProperty(key) ) {
+    result[key] = deepCopy(source[key]);
       }
     }
     return result;
