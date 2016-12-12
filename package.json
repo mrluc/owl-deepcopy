@@ -10,6 +10,7 @@
   ],
   "repository": "git://github.com/mrluc/owl-deepcopy",
   "version": "0.0.6",
+  "license": "LGPLv3",
   "main": "./deep_copy.js",
   "engines": {
     "node": ">=0.4.0"
